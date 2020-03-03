@@ -1,0 +1,11 @@
+<%= form_for @song do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :length %>
+    <%= f.text_field :length %>
+
+    <%= f.collection_select :genre, Genre.all, :id, :name %>
+
+    <%= f.submit "Create Song" %>
+<% end %>

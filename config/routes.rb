@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "welcome#home"
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:create, :show]
   resources :songs
   get "/signup", to: "welcome#signup"
   get '/login' => 'sessions#new'
