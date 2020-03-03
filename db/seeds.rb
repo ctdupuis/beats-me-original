@@ -57,4 +57,4 @@ genres.each do |genre|
 end
 
 lakey = Artist.create(name: "Lakey Inspired")
-lakey.songs.build()
+# lakey.songs.build("Smile", "Blue Boi")
