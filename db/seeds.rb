@@ -55,3 +55,5 @@ genres = ["Hip Hop",
 genres.each do |genre|
     Genre.create(name: genre)
 end
+
+lakey = Artist.create(name: "Lakey Inspired")
