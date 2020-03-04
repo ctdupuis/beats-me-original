@@ -6,6 +6,7 @@ class SongsController < ApplicationController
     end
 
     def create
+        # byebug
         @song = Song.create(song_params)
         if @song.save
             redirect_to song_path(@song)
@@ -33,7 +34,7 @@ class SongsController < ApplicationController
     private
 
     def song_params
-        params.require(:song).permit(:title, :length, :genre_id, :artist_id, :playlist_id, :album_id)
+        params.require(:song).permit(:title, :length, :genre_id, :artist_name, :album_name)
     end
 
     def set_song

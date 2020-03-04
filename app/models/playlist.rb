@@ -5,5 +5,5 @@ class Playlist < ApplicationRecord
     has_many :albums, through: :songs
     belongs_to :user
 
-    validates :name, presence: true
+    # validates :name, presence: true
 end
