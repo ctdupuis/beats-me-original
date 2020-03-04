@@ -3,12 +3,21 @@ class AlbumsController < ApplicationController
     
     def new
         @album = Album.new
+        6.times { @album.songs.build }
     end
 
     def create
+        artist = Artist.find_or_create_by(name: album_params[:artist_name])
+        @album = artist.albums.create(album_params)
+        if @album.save
+            redirect_to album_path(@album)
+        else
+            render :new 
+        end
     end
 
     def index
+        @albums = Album.all
     end
 
     def show
@@ -26,7 +35,7 @@ class AlbumsController < ApplicationController
     private
 
     def album_params
-        params.require(:album).permit(:name, :artist_name, :genre_id)
+        params.require(:album).permit(:name, :artist_name, :genre_id, song_attributes: [:title, :length])
     end
 
     def set_album

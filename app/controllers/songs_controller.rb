@@ -7,7 +7,8 @@ class SongsController < ApplicationController
 
     def create
         # byebug
-        @song = Song.create(song_params)
+        album = Album.find_or_create_by(name: song_params[:album_name])
+        @song = album.songs.build(song_params)
         if @song.save
             redirect_to song_path(@song)
         else

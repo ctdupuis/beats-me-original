@@ -2,6 +2,7 @@ class Album < ApplicationRecord
     has_many :songs
     belongs_to :genre
     belongs_to :artist
+    accepts_nested_attributes_for :songs
 
     # validates :name, presence: true
     # validates :artist_id, presence: true 
@@ -15,4 +16,11 @@ class Album < ApplicationRecord
     def artist_name=(name)
         self.artist = Artist.find_or_create_by(name: name)
     end
+
+    def song_attributes=(attributes)
+        attributes.each do |att|
+            Song.create(title: title, album_id: self.id)
+        end
+    end
+
 end
