@@ -1,8 +1,13 @@
-<%= @album.name %><br />
-<%= @album.artist.name %><br />
+<div class="album-show-alb-name">
+    <h1><%= @album.name %></h1><br />
+</div>
+by
+<div class="album-show-art-name">
+    <h2><%= @album.artist.name %><h2><br />
+</div>
 <%= @album.genre.name %><br />
-<%= @album.songs.each do |song| %>
-    <ul>
-    <li><%= song.title %></li>
-    </ul>
+<% @album.songs.each do |song| %>
+    <div class="album-show-songs">
+        <%= link_to song.title, album_song_path(@album, song) %>
+    </div>
 <% end %>

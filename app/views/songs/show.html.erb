@@ -1,3 +1,4 @@
 <%= @song.title %> by:
 <%= link_to @song.artist.name, artist_path(@song.artist) %> on
 <%= link_to @song.album.name, album_path(@song.album) %>
+<%= @song.length %>

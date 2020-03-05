@@ -4,7 +4,6 @@ class CreateSongs < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :length
       t.integer :artist_id
-      t.integer :genre_id
       t.integer :album_id
 
       t.timestamps

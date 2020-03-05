@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 2020_03_03_022918) do
     t.string "title"
     t.string "length"
     t.integer "artist_id"
-    t.integer "genre_id"
     t.integer "album_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -17,11 +17,12 @@
 
     <h2>Tracklist</h2>
 
-    <%= f.fields_for :songs do |song_field| %>
+    <%= f.fields_for :songs, 6.times {@album.songs.build} do |song_field| %>
         <%= song_field.label :title %>
         <%= song_field.text_field :title %>
         <%= song_field.label :length %>
         <%= song_field.text_field :length %>
+        <%= song_field.hidden_field :artist_name, :value => params[:artist_name] %>
         <br />
 
     <% end %>
