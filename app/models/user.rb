@@ -7,4 +7,9 @@ class User < ApplicationRecord
     validates :first_name, presence: true, format: {without: /[0-9]/, message: "Numbers are not allowed in this field"}
     validates :last_name, presence: true, format: {without: /[0-9]/, message: "Numbers are not allowed in this field"}
     validates :password, length: {minimum: 6}
+
+    def display_name
+        self.first_name + self.last_name 
+    end
+    
 end

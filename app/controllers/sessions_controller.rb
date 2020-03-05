@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
 
     def new
-        @user = User.new
+        # @user = User.new
     end
 
     def create
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            redirect_to login_path, alert: 'Invalid username/password'
+            redirect_to root_path, alert: 'Invalid username/password'
         end
     end
 
