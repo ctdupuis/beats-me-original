@@ -1,4 +1,8 @@
 <%= @album.name %><br />
 <%= @album.artist.name %><br />
 <%= @album.genre.name %><br />
-<%= link_to "Tracklist", album_songs_path(@album) %>
+<%= @album.songs.each do |song| %>
+    <ul>
+    <li><%= song.title %></li>
+    </ul>
+<% end %>

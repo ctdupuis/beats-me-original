@@ -17,10 +17,12 @@ class Album < ApplicationRecord
         self.artist = Artist.find_or_create_by(name: name)
     end
 
-    def song_attributes=(attributes)
-        attributes.each do |att|
-            Song.create(title: title, album_id: self.id)
-        end
-    end
+    # def song_attributes=(attributes_hash)
+    #     byebug
+    #     attributes_hash.each do |att|
+    #         song = Song.create(att)
+    #         self.songs << song
+    #     end
+    # end
 
 end
