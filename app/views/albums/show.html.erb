@@ -7,7 +7,7 @@ by
 </div>
 <%= @album.genre.name %><br />
 <% @album.songs.each do |song| %>
-    <div class="album-show-songs">
+    <div class="list-item">
         <%= link_to song.title, album_song_path(@album, song) %>
     </div>
 <% end %>

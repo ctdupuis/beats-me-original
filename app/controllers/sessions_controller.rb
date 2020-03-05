@@ -2,19 +2,19 @@ class SessionsController < ApplicationController
 
 
     def new
-        @user = User.first
+        @user = User.new
     end
 
     def create
         @user = User.find_by(username: params[:username])
         if !@user 
-            render :new, alert: 'Username does not exist'
+            redirect_to login_path, alert: 'Username does not exist'
         end
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            render :new 
+            redirect_to login_path, alert: 'Invalid username/password'
         end
     end
 

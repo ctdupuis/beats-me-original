@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
     # def current_user
     #   User.find_by(id: session[:user_id])
     # end
+
+    # def require_logged_in
+    #     redirect_to controller: 'sessions', action: 'new' unless current_user
+    # end
 end

@@ -1,5 +1,5 @@
 <% @albums.each do |album| %>
-    <ul>
-        <li><%= link_to album.name, album_path(album) %></li>
-    </ul>
+    <div class="list-item">
+        <p><%= link_to album.name, album_path(album) %> | <%= link_to "Edit", edit_album_path(album) %></p> 
+    </div>
 <% end %>

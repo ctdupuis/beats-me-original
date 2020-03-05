@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-    before_action :set_album, only: [:edit, :update, :show]
+    before_action :set_album, only: [:edit, :update, :show, :destroy]
     
     def new
         @album = Album.new
@@ -28,15 +28,19 @@ class AlbumsController < ApplicationController
     end
     
     def update
+        # byebug
+        @album.update(album_params)
+        redirect_to album_path(@album)
     end
 
     def destroy
+        @album.destroy
     end
 
     private
 
     def album_params
-        params.require(:album).permit(:name, :artist_name, :genre_id, songs_attributes: [:title, :length, :artist_name])
+        params.require(:album).permit(:name, :artist_name, :genre_id, songs_attributes: [:title, :length, :artist_name, :id])
     end
 
     def set_album
