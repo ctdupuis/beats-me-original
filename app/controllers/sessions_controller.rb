@@ -6,15 +6,18 @@ class SessionsController < ApplicationController
     end
 
     def create
-        @user = User.find_by(username: params[:username])
-        if !@user 
-            redirect_to login_path, alert: 'Username does not exist'
-        end
-        if @user && @user.authenticate(params[:password])
-            session[:user_id] = @user.id
+        if auth_hash = request.env['omniauth.auth']
+            @user = User.find_or_create_by_omniauth(auth_hash)
+            session[:user_id] = @user.id 
             redirect_to user_path(@user)
         else
-            redirect_to root_path, alert: 'Invalid username/password'
+            @user = User.find_by(email: params[:email])
+            if @user && @user.authenticate(params[:password])
+                session[:user_id] = @user.id
+                redirect_to user_path(@user)
+            else
+                render 'new'
+            end
         end
     end
 

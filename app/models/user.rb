@@ -4,12 +4,17 @@ class User < ApplicationRecord
 
     validates :username, uniqueness: true, presence: true
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true, uniqueness: true
-    validates :first_name, presence: true, format: {without: /[0-9]/, message: "Numbers are not allowed in this field"}
-    validates :last_name, presence: true, format: {without: /[0-9]/, message: "Numbers are not allowed in this field"}
+    # validates :first_name, presence: true, format: {without: /[0-9]/, message: "Numbers are not allowed in this field"}
+    # validates :last_name, presence: true, format: {without: /[0-9]/, message: "Numbers are not allowed in this field"}
     validates :password, length: {minimum: 6}
 
-    def display_name
-        self.first_name + self.last_name 
+    def self.find_or_create_by_omniauth(auth_hash)
+        # uid = request.env['omniauth.auth'].uid
+        # email = request.env['omniauth.auth']['info']['email']
+        # byebug
+        self.where(email: auth_hash['info']['email']).first_or_create do |user|
+            user.username = auth_hash['uid']
+            user.password = SecureRandom.hex
+        end
     end
-    
 end

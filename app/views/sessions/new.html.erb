@@ -1,15 +1,19 @@
 <%= form_tag("/login") do %>
   
 
-    <div class="field<%= ' field_with_errors' if @user.errors[:username].any? %>">
+   
         <%= label_tag "username", "Username" %>
         <%= text_field_tag "username" %>
-    </div>
+    
 
-    <div class="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
+    
         <%= label_tag "password", "Password" %>
-        <%= password_field_tag "password", @user.password %>
-    </div>
+        <%= password_field_tag "password" %>
+
+        <br />
+
+        <p><%= link_to "Log in with Spotify", "/auth/spotify" %></p>
+    
 
 <%= submit_tag "Log In" %>
 <% end %>
