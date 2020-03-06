@@ -4,5 +4,7 @@
 
 <h2>Discography</h2>
 <% @artist.albums.each do |album| %>
-    <li><%= link_to album.name, album_path(album) %></li>
+    <div class="list-item">
+        <p><%= link_to album.name, album_path(album) %><p>
+    </div>
 <% end %>

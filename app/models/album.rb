@@ -2,6 +2,7 @@ class Album < ApplicationRecord
     has_many :songs
     belongs_to :genre
     belongs_to :artist
+    belongs_to :user
     # accepts_nested_attributes_for :songs
 
     # validates :name, presence: true

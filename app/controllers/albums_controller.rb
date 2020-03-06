@@ -1,16 +1,14 @@
 class AlbumsController < ApplicationController
     before_action :set_album, only: [:edit, :update, :show, :destroy]
-    
+    before_action :require_logged_in, only: [:new, :create, :edit, :update, :destroy]
     
     def new
         @album = Album.new
-        # 6.times { @album.songs.build }
     end
 
-    def create
-        # artist = Artist.find_or_create_by(name: album_params[:artist_name])
+    def create 
         @album = Album.create(album_params)
-        # byebug
+        @album.user_id = current_user.id
         if @album.save
             redirect_to album_path(@album)
         else
@@ -23,17 +21,13 @@ class AlbumsController < ApplicationController
     end
 
     def show
-        # byebug
-        # @song = @album.songs.build
     end
 
     def edit
     end
     
     def update
-        # byebug
-        @album.artist.name = params[:album][:artist_name]
-        
+        @album.artist.name = params[:album][:artist_name]   
         @album.update(album_params)
         redirect_to album_path(@album)
     end
@@ -45,12 +39,11 @@ class AlbumsController < ApplicationController
     private
 
     def album_params
-        params.require(:album).permit(:name, :artist_name, :genre_id, songs_attributes: [:title, :length, :artist_name])
+        params.require(:album).permit(:name, :artist_name, :genre_id, :user_id, songs_attributes: [:title, :length, :artist_name])
     end
 
     def set_album
         @album = Album.find(params[:id])
     end
-
 
 end

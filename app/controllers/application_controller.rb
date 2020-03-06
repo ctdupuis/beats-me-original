@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
     # before_action :verified_user
     helper_method :current_user
     helper_method :user_is_authenticated
+    helper_method :require_logged_in
 
     private
 
@@ -19,6 +20,7 @@ class ApplicationController < ActionController::Base
     end
 
     def require_logged_in
-        redirect_to controller: 'sessions', action: 'new' unless current_user
+      redirect_to controller: 'sessions', action: 'new' unless user_is_authenticated
     end
+
 end

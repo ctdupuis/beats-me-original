@@ -49,10 +49,12 @@ genres.each do |genre|
     Genre.create(name: genre)
 end
 
+user = User.create(username: "webhead", email: "futuredev@learn.co", password: "railsproject")
+
 def make_seeds(track_hash, album, artist, genre)
     genre = Genre.find_or_create_by(name: genre)
     artist = Artist.find_or_create_by(name: artist)
-    album = Album.create(name: album, artist_name: artist.name, genre_id: genre.id)
+    album = Album.create(name: album, artist_name: artist.name, genre_id: genre.id, user_id: User.first.id)
     track_hash.each do |k, v|
         song = Song.new(v)
         song.artist_id = artist.id 
