@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
-    before_action :set_song, only: [:edit, :update, :show]
+    before_action :set_song, only: [:edit, :update, :show, :destroy]
+    
 
     def new
         @song = Song.new
@@ -24,12 +25,17 @@ class SongsController < ApplicationController
     end
 
     def edit
+        # byebug
     end
 
     def update
+        byebug
+        @song.update(song_params)
     end
 
     def destroy
+        @song.destroy 
+        redirect_to albums_path
     end
 
     private

@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
     before_action :set_album, only: [:edit, :update, :show, :destroy]
     
+    
     def new
         @album = Album.new
         # 6.times { @album.songs.build }
@@ -22,6 +23,8 @@ class AlbumsController < ApplicationController
     end
 
     def show
+        # byebug
+        # @song = @album.songs.build
     end
 
     def edit

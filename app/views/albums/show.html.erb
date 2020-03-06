@@ -11,3 +11,5 @@ by
         <%= link_to song.title, album_song_path(@album, song) %>
     </div>
 <% end %>
+
+<p><%= link_to "Add Song", new_album_song_path(@album) %></p>
