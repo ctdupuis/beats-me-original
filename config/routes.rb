@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   root "welcome#home"
   get "/signup", to: "welcome#signup"
+  post "/signup", to: "users#create"
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy'
   resources :users, only: [:create, :show]
   resources :artists
   resources :albums do 

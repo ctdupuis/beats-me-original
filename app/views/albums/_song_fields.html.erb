@@ -1,0 +1,11 @@
+<h2>Tracklist</h2>
+<%= f.fields_for :songs, 6.times { album.songs.build } do |song_field| %>
+    <%= song_field.label :title %>
+    <%= song_field.text_field :title %>
+    <%= song_field.label :length %>
+    <%= song_field.text_field :length %>
+    
+
+    <br />
+
+<% end %>

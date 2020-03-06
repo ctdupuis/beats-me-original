@@ -2,7 +2,7 @@ class Album < ApplicationRecord
     has_many :songs
     belongs_to :genre
     belongs_to :artist
-    accepts_nested_attributes_for :songs
+    # accepts_nested_attributes_for :songs
 
     # validates :name, presence: true
     # validates :artist_id, presence: true 
