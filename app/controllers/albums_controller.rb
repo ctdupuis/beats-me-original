@@ -29,6 +29,8 @@ class AlbumsController < ApplicationController
     
     def update
         # byebug
+        @album.artist.name = params[:album][:artist_name]
+        
         @album.update(album_params)
         redirect_to album_path(@album)
     end
