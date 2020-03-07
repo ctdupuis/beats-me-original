@@ -29,4 +29,11 @@ class Album < ApplicationRecord
         end
     end
 
+    def add_song(song)
+        # byebug
+        song.artist_id = self.artist_id
+        song.save
+        self.songs << song 
+    end
+
 end

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :albums do 
     resources :songs 
   end
+  post "/albums/:id/songs/new" => 'songs#add', as: 'add_song'
   get '/auth/:provider/callback' => 'sessions#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -23,4 +23,5 @@ class ApplicationController < ActionController::Base
       redirect_to controller: 'sessions', action: 'new' unless user_is_authenticated
     end
 
+    
 end
