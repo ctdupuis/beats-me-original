@@ -10,7 +10,7 @@
 
     <br />
     Genre:
-    <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "Select a genre" %>
 
     <br />
 

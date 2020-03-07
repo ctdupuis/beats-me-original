@@ -17,7 +17,8 @@ class AlbumsController < ApplicationController
     end
 
     def index
-        @albums = Album.all
+        # byebug
+        @albums = Album.filter(params["genre"])
     end
 
     def show

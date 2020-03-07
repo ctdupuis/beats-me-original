@@ -1,27 +1,14 @@
-<% flash.each do |type, msg| %>
-        <div class="flash-message">
-                <%= msg %>
-        </div>
+<%= form_for :user, url: "/login" do |f| %>
+
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+
+        <%= f.submit "Log In" %>
 <% end %>
-
-<%= form_tag("/login") do %>
-  
-
-   
-        <%= label_tag "username", "Username" %>
-        <%= text_field_tag "username" %>
-    
-
-    
-        <%= label_tag "password", "Password" %>
-        <%= password_field_tag "password" %>
-
-        <br />
-
-        <p><%= link_to "Log in with Spotify", "/auth/spotify" %></p>
-    
-
-<%= submit_tag "Log In" %>
-<% end %>
+<br />
+<p><%= link_to "Log in with Spotify", "/auth/spotify" %></p>
 
 <p>Don't have an account? <%= link_to "Sign Up!", signup_path %></p>
