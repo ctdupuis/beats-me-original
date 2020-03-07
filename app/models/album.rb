@@ -3,6 +3,7 @@ class Album < ApplicationRecord
     belongs_to :genre
     belongs_to :artist
     belongs_to :user
+    scope :user_owns, ->(user_id) { where("user_id = ?", user_id) }
 
     validates :name, presence: true
 

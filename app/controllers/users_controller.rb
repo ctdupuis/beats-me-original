@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        @albums = Album.user_owns(@user)
+        @albums = Album.user_owns(@user.id)
     end
 
     private
