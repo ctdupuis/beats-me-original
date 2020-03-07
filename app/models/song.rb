@@ -1,10 +1,8 @@
 class Song < ApplicationRecord
     belongs_to :artist
-    # belongs_to :genre, through: :album
-    # belongs_to :playlist
     belongs_to :album
 
-    # validates :title, presence: true
+    validates :title, presence: true
     # validates :length, presence: true
     # validates :artist_id, presence: true
     # validates :genre_id, presence: true
