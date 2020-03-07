@@ -67,8 +67,7 @@ p {
             cursor: pointer;
             background-color: goldenrod;
             transition: 0.5s, ease; }
-            .header .nac div:hover a {
-                color: white; }
-            
+            .header .nav div:hover a {
+                color: white; 
+            }
     
-}
