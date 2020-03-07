@@ -19,9 +19,7 @@ class Album < ApplicationRecord
     end
 
     def songs_attributes=(attributes_hash)
-        # byebug
         attributes_hash.each do |k, value|
-            # byebug
             song = Song.new(value)
             song.artist_id = self.artist_id
             song.save
@@ -30,7 +28,6 @@ class Album < ApplicationRecord
     end
 
     def add_song(song)
-        # byebug
         song.artist_id = self.artist_id
         song.save
         self.songs << song 

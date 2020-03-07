@@ -45,13 +45,14 @@ class SongsController < ApplicationController
     end
 
     def update
-        byebug
+        # byebug
         @song.update(song_params)
+        redirect_to album_path(@song.album)
     end
 
     def destroy
         @song.destroy 
-        redirect_to albums_path
+        redirect_to album_path(@song.album)
     end
 
     private

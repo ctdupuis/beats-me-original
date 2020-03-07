@@ -8,8 +8,10 @@ by
 <%= @album.genre.name %><br />
 <% @album.songs.each do |song| %>
     <div class="list-item">
-        <%= link_to song.title, album_song_path(@album, song) %>
+        <%= link_to song.title, album_song_path(@album, song) %> |  <%= link_to "Edit", edit_album_song_path(@album, song) %>
     </div>
 <% end %>
+
+<p><%= link_to "Delete Album", @album, method: :delete, data: { confirm: "Are you sure?"} %></p>
 
 <p><%= link_to "Add Song", new_album_song_path(@album) %></p>
