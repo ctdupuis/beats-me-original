@@ -1,0 +1,18 @@
+<div class="header">
+    <div class="title">BeatsME</div>
+    <% if current_user %>
+        <div class="username">
+            <i>Welcome, <%= current_user.username %></i>
+        </div>
+    <% end %>
+
+    <div class="nav">
+        <% if user_is_authenticated %>
+            <div><a href="/albums">Albums</a></div>
+            <div><a href="/logout">Log Out</a></div>
+        <% else %>
+            <div><a href="/signup">Sign Up</a></div>
+            <div><a href="/login"><Log In</a></div>
+        <% end %>
+    </div>
+</div>

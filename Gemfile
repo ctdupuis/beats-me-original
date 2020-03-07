@@ -26,6 +26,11 @@ gem 'omniauth'
 gem 'omniauth-spotify'
 gem 'devise'
 
+group :styling, do
+  # gem 'bootstrap', '~> 4.4.1'
+  # gem 'jquery-rails'
+end
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
