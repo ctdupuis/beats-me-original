@@ -21,6 +21,7 @@ class AlbumsController < ApplicationController
     end
 
     def show
+        @user = User.find(@album.user_id)
     end
 
     def edit

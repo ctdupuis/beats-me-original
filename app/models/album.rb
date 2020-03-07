@@ -3,12 +3,8 @@ class Album < ApplicationRecord
     belongs_to :genre
     belongs_to :artist
     belongs_to :user
-    # accepts_nested_attributes_for :songs
 
-    # validates :name, presence: true
-    # validates :artist_id, presence: true 
-    # validates :genre_id, presence: true
-    # # validates :songs, presence: true
+    validates :name, presence: true
 
     def artist_name 
         self.artist ? self.artist.name : nil

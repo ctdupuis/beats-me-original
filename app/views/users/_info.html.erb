@@ -1,0 +1,6 @@
+Username: <%= @user.username %><br />
+
+Submissions: 
+<% @albums.each do |album| %>
+    <p><%= link_to album.name, album_path(album) %></p>
+<% end %>

@@ -6,7 +6,4 @@ module AlbumsHelper
         end
     end
 
-    # def check_ownership(album)
-    #     current_user.id == album.id
-    # end
 end

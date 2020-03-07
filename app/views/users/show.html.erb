@@ -1,2 +1,7 @@
-Username: <%= @user.username %><br />
+<% if my_page?(@user) %>
+    <%= render 'home' %>
+    <%= render 'info' %>
+<% else %>
+    <%= render 'info' %>
+<% end %>
 

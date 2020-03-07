@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     end
 
     def show
+        @albums = Album.user_owns(@user)
     end
 
     private
