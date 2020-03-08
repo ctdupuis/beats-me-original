@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
     helper_method :user_is_authenticated
     helper_method :require_logged_in
     helper_method :check_ownership
+    helper_method :my_page?
 
     private
   
@@ -22,5 +23,10 @@ class ApplicationController < ActionController::Base
     def check_ownership(user=nil, object)
       user.id == object.user_id if user
     end
+
+    def my_page?(user)
+      current_user == user.id
+    end
+
     
 end

@@ -11,7 +11,7 @@
 <% @albums.each do |album| %>
     <div class="list-item">
         <h3><%= link_to album.name, album_path(album) %> 
-        <% if current_user && check_ownership(album) %>
+        <% if current_user && check_ownership(current_user, album) %>
         | <%= link_to "Edit", edit_album_path(album) %></h3> 
         <% end %>
     </div>

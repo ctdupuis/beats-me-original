@@ -2,11 +2,3 @@
 <%= link_to @song.artist.name, artist_path(@song.artist) %> on
 <%= link_to @song.album.name, album_path(@song.album) %>
 <%= @song.length %>
-
-
-<div='song-edit-button'>
-    <p><%= link_to 'Edit this Song', edit_album_song_path(@song.album, @song) %></p>
-</div>
-<div='song-delete-button'>  
-    <p><%= link_to "Delete Song", album_song_path(@song.album, @song), method: :delete %></p>
-</div>
