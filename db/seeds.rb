@@ -49,17 +49,20 @@ genres.each do |genre|
     Genre.create(name: genre)
 end
 
-user = User.create(username: "webhead", email: "futuredev@learn.co", password: "railsproject")
+u1 = User.create(username: "webhead", email: "futuredev@learn.co", password: "railsproject")
+u2 = User.create(username: "moomoo", email: "moocow@pepperidgefarms.com", password: "railsproject")
+u3 = User.create(username: "BigDoggoMilo", email: "noleantreats@perard.com", password: "railsproject")
 
-def make_seeds(track_hash, album, artist, genre)
+def make_seeds(track_hash, album, artist, genre, user)
     genre = Genre.find_or_create_by(name: genre)
     artist = Artist.find_or_create_by(name: artist)
-    album = Album.create(name: album, artist_name: artist.name, genre_id: genre.id, user_id: User.first.id)
+    alb = Album.new(name: album, artist_name: artist.name, genre_id: genre.id, user_id: user.id)
     track_hash.each do |k, v|
         song = Song.new(v)
         song.artist_id = artist.id 
         song.save
-        album.songs << song
+        alb.songs << song
+        alb.save
     end
 end
 
@@ -108,8 +111,8 @@ hollywood_tracks = {
     :t6 => {:title => "Circles", :length => "3:35"}
 }
 
-make_seeds(up_tracks, "Under Pressure", "Logic", "Rap")
-make_seeds(circles_tracks, "Circles", "Mac Miller", "Hip Hop")
-make_seeds(swimming_tracks, "Swimming", "Mac Miller", "Hip Hop")
-make_seeds(fhd_tracks, "2014 Forest Hills Drive", "J. Cole", "Rap")
-make_seeds(hollywood_tracks, "Hollywood's Bleeding", "Post Malone", "Pop")
+make_seeds(up_tracks, "Under Pressure", "Logic", "Rap", u1)
+make_seeds(circles_tracks, "Circles", "Mac Miller", "Hip Hop", u1)
+make_seeds(swimming_tracks, "Swimming", "Mac Miller", "Hip Hop", u2)
+make_seeds(fhd_tracks, "2014 Forest Hills Drive", "J. Cole", "Rap", u3)
+make_seeds(hollywood_tracks, "Hollywood's Bleeding", "Post Malone", "Pop", u3)
