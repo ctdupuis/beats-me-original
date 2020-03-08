@@ -1,3 +1,10 @@
-const { environment } = require('@rails/webpacker')
+import { environment } from '@rails/webpacker'
+import { ProvidePlugin } from "webpack"
 
-module.exports = environment
+environments.plugins.append("Provide", new ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+    Popper: ['popper.js', 'default']
+}))
+
+export default environment
