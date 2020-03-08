@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="welcome">
+        <h2>Welcome, <%= current_user.username %></h2>
+    </div>
+</div>
+<h4>Your Submissions:</h4>
+<div class="container">
+    <% @submissions.each do |sub| %>
+        <div class="list-item">
+            <%= link_to sub.name, album_path(sub) %>
+        </div>
+    <% end %>
+</div>

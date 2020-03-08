@@ -1,5 +1,14 @@
 <%= render 'form' %>
 <br />
-<p><%= link_to "Log in with Spotify", "/auth/spotify" %></p>
 
-<p>Don't have an account? <%= link_to "Sign Up!", signup_path %></p>
+<div class="container">
+<div class="button" onclick="location.href='/auth/spotify';" style="cursor: pointer;">
+    <div>Login With Spotify</div>
+</div>
+
+
+<p>Don't have an account?</p> 
+<div class="button" onclick="location.href='/login';" style="cursor: pointer;">
+    <div><%= link_to "Sign Up", signup_path %></div>
+</div>
+</div>

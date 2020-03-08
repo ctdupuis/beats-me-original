@@ -26,13 +26,14 @@ body {
 }
 
  .field_with_errors {
-    border-left: 2px solid red;
+    border-left: 2px solid rgb(136, 58, 238);
 }
 
 a {
     text-decoration: none;
-    color: rgb(202, 7, 7);
+    color: rgb(136, 58, 238);
 }
+
 
 p, h1, h2, h3, h4 {
     color: white;
@@ -42,7 +43,13 @@ p, h1, h2, h3, h4 {
     display: flex;
     background-color: rgb(41, 41, 41);
     width: 100%;
+    border-left: 14px;
+    padding-left: 2px;
+    height: 20%;
+}
 
+.title {
+    padding-left: 10px;
 }
 
     .navbar {
@@ -52,20 +59,20 @@ p, h1, h2, h3, h4 {
 
     .nav-container {
         display: flex;
-        padding: 20px;
+        padding: 10px;
         background-color: darkgrey;
         margin: 10px;
         border-radius: 10px;
         &:hover {
             cursor: pointer;
-            background-color: white;
+            background-color: black;
             transition: 0.5s ease;
             .nav-item a {
-                color: red;
+                color: rgb(136, 58, 238);
             }
         }
     .nav-item a {
-        color: blue;
+        color: rgb(136, 58, 238);
 
     }
 }
@@ -79,12 +86,31 @@ p, h1, h2, h3, h4 {
             background-color: darkgrey;
             margin: 10px;
             border-radius: 10px;
+            div {
+                color: rgb(136, 58, 238); 
+            }
             &:hover {
                 cursor: pointer;
                 background-color: black;
-                transition: 0.5s ease;
-                div{
-                    color: red;
+                transition: 0.2s ease;
+                div {
+                    color: rgb(136, 58, 238);
                 }
             }
     }
+
+input {
+    background-color: black;
+    border: 2px;
+    padding-block: rgb(136, 58, 238);
+    padding: 5px;
+    border-radius: 10px;
+    font-size: large;
+    text-align: left;
+    color: rgb(136, 58, 238);
+}
+
+#album_genre_id, #genre {
+    color: rgb(136, 58, 238);
+    background-color: black;
+}

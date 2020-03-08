@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show]
+    before_action :require_logged_in, only: [:my_page]
 
 
     def create
@@ -14,6 +15,10 @@ class UsersController < ApplicationController
 
     def show
         @albums = Album.user_owns(@user.id)
+    end
+
+    def my_page
+        @submissions = current_user.albums
     end
 
     private

@@ -1,17 +1,33 @@
-Welcome to BeatsME
+<h2>Welcome to BeatsME</h2>
 <br />
 <br />
 
 <div class = "container">
-    <div class="button">
+    <div class="button" onclick="location.href='/albums/new';" style="cursor: pointer;">
         <div><%= link_to "Add an Album", new_album_path %></div>
     </div>
 
-    <div class="button">
+    <div class="button" onclick="location.href='/albums';" style="cursor: pointer;">
         <div><%= link_to "Explore Albums", albums_path %></div>
     </div>
 
-    <div class="button">
-        <div><%= link_to "Explore Albums", artists_path %></div>
+    <div class="button" onclick="location.href='/artists';" style="cursor: pointer;">
+        <div><%= link_to "Explore Artists", artists_path %></div>
     </div>
+
+    <% if user_is_authenticated %>
+            <div class="button">
+                <div><%= link_to "My Profile", user_path(current_user) %></p></div>
+            </div>
+            <div class="button" onclick="location.href='/logout';" style="cursor: pointer;">
+                <div><%= link_to "Log Out", controller: 'sessions', action: 'destroy' %></p></div>
+            </div>
+    <% else %>
+            <div class="button" onclick="location.href='/signup';" style="cursor: pointer;">
+                <div><%= link_to "Sign Up", signup_path %></p></div>
+            </div>
+            <div class="button" onclick="location.href='/login';" style="cursor: pointer;">
+                <div><%= link_to "Log In", login_path %></p></div>
+            </div>
+    <% end %>
 </div>

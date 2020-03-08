@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   end
   post "/albums/:id/songs/new" => 'songs#add', as: 'add_song'
   get '/auth/:provider/callback' => 'sessions#create'
+  get 'my_page' => 'users#my_page', as: 'my_page'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

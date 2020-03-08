@@ -28,5 +28,9 @@ class ApplicationController < ActionController::Base
       current_user == user.id
     end
 
+    def current_controller?(names)
+      names.include?(current_controller)
+    end
+
     
 end
