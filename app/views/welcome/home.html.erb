@@ -1,7 +1,17 @@
-THIS IS THE APPLICATION HOME PAGE
+Welcome to BeatsME
 <br />
 <br />
 
-<%= link_to "New Album", new_album_path %><br />
-<%= link_to "Albums", albums_path %><br />
-<%= link_to "Artists", artists_path %><br />
+<div class = "container">
+    <div class="button">
+        <div><%= link_to "Add an Album", new_album_path %></div>
+    </div>
+
+    <div class="button">
+        <div><%= link_to "Explore Albums", albums_path %></div>
+    </div>
+
+    <div class="button">
+        <div><%= link_to "Explore Albums", artists_path %></div>
+    </div>
+</div>
