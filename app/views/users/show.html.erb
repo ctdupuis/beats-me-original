@@ -1,4 +1,4 @@
-<% if my_page?(@user) %>
+<% if check_ownership(current_user, @user) %>
     <%= render 'home' %>
     <%= render 'info' %>
 <% else %>

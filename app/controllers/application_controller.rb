@@ -6,10 +6,6 @@ class ApplicationController < ActionController::Base
     helper_method :check_ownership
 
     private
-
-    def verified_user
-      redirect_to '/login' unless user_is_authenticated
-    end
   
     def user_is_authenticated
       !!current_user
@@ -23,8 +19,8 @@ class ApplicationController < ActionController::Base
       redirect_to controller: 'sessions', action: 'new', alert: "Must Log In" unless user_is_authenticated
     end
 
-    def check_ownership(object)
-      current_user.id == object.user_id
+    def check_ownership(user=nil, object)
+      user.id == object.user_id if user
     end
     
 end

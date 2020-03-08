@@ -15,14 +15,14 @@ created by
 <% @album.songs.each do |song| %>
     <div class="list-item">
         <%= link_to song.title, album_song_path(@album, song) %>
-        <% if check_ownership(@album) %>
+        <% if check_ownership(current_user, @album) %>
          |  <%= link_to "Edit", edit_album_song_path(@album, song) %>
          |  <%= link_to "Delete", album_song_path(@album, song), method: :delete, data: { confirm: "This song will be deleted. Are you sure?"} %>
-        <% end %> 
+         <% end %>
     </div>
 <% end %>
 
-<% if check_ownership(@album) %>
+<% if check_ownership(current_user, @album) %>
 <p><%= link_to "Delete Album", @album, method: :delete, data: { confirm: "This album will be deleted. Are you sure?"} %></p>
 
 <p><%= link_to "Add Song", new_album_song_path(@album) %></p>
