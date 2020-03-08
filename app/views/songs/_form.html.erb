@@ -1,11 +1,24 @@
 <%= form_for @song, url: pick_form_url(@song)  do |f| %>
+    <% if @song.errors.any? %>
+        <div id="error-explanation">
+            <h2>There were some errors:</h2>
+            <ul>
+             <% @song.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+             <% end %>
+            </ul>
+            </div>
+        <% end %>
 
+    <div id="field<%= ' field_with_errors' if @song.errors[:title].any? %>">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
 
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-
-    <%= f.label :length %>
-    <%= f.text_field :length %>
+    <div id="field<%= ' field_with_errors' if @song.errors[:length].any? %>">
+        <%= f.label :length %>
+        <%= f.text_field :length %>
+    </div>
 
     <%= f.submit %>
 <% end %>

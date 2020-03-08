@@ -3,7 +3,7 @@ class Song < ApplicationRecord
     belongs_to :album
 
     validates :title, presence: true
-    # validates :length, presence: true
+    validates :length, presence: true
     # validates :artist_id, presence: true
     # validates :genre_id, presence: true
 

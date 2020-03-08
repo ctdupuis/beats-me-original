@@ -16,7 +16,7 @@ class SongsController < ApplicationController
         album = Album.find(params[:id])
         @song = album.songs.build(song_params)
         album.add_song(@song)
-        if album.songs.include?(@song)
+        if @song.save && album.songs.include?(@song)
             redirect_to album_path(@song.album)
         else
             render :new
@@ -34,8 +34,11 @@ class SongsController < ApplicationController
     end
 
     def update
-        @song.update(song_params)
-        redirect_to album_path(@song.album)
+        if @song.update(song_params)
+            redirect_to album_path(@song.album)
+        else
+            render :edit
+        end
     end
 
     def destroy

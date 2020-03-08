@@ -1,8 +1,13 @@
-<h3>Filter albums:</h3>
+<h3>Filter albums by genre:</h3>
   <%= form_tag("/albums", method: "get") do %>
-    <%= select_tag "genre", options_from_collection_for_select(Genre.all, :id, :name), include_blank: true %>
-    <%= submit_tag "Filter" %>
+    <%= select_tag "genre", options_from_collection_for_select(Genre.all, :id, :name), prompt: "No Filter" %>
+
+    <div class="actions">
+        <%= submit_tag "Filter" %>
+    </div>
   <% end %>
+
+  
 <% @albums.each do |album| %>
     <div class="list-item">
         <h3><%= link_to album.name, album_path(album) %> 

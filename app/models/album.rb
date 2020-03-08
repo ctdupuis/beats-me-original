@@ -6,6 +6,8 @@ class Album < ApplicationRecord
     scope :user_owns, ->(user_id) { where("user_id = ?", user_id) }
 
     validates :name, presence: true
+    validates :artist_name, presence: true
+    validates :songs, presence: true
 
     def artist_name 
         self.artist ? self.artist.name : nil
