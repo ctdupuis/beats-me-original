@@ -124,8 +124,19 @@ p, h1, h2, h3, h4 {
             }
     }
 
-input, label {
+input {
     background-color: black;
+    border: 2px;
+    padding-block: rgb(136, 58, 238);
+    padding: 5px;
+    border-radius: 10px;
+    font-size: medium;
+    text-align: left;
+    color: rgb(136, 58, 238);
+}
+
+label { 
+    background-color: #292929;
     border: 2px;
     padding-block: rgb(136, 58, 238);
     padding: 5px;
@@ -138,6 +149,9 @@ input, label {
 #album_genre_id, #genre {
     color: rgb(136, 58, 238);
     background-color: black;
+    height: 30px;
+    width: 250px;
+    font-size: 15px;
 }
 
 table {
@@ -161,4 +175,34 @@ table {
         }
     }
 }
+.alb-header {
+    display: flex;
+    background-color: rgb(41, 41, 41);
+    width: 100%;
+    border-left: 14px;
+    padding-left: 2px;
+    height: 20%;
+    .alb-container {
+        display: inline;
+        border: 10px;
+        padding: 5px;
+        color: whitesmoke;
+        font-size: 25px;
+    }
+    .img-container {
+        text-align: right;
+        img {
+        height: 350px;
+        width: 75%;
+        border: 50px;
+        padding: 10px 50px 10px 300px;
+        }
+    }
+}
 
+.text {
+    color: whitesmoke;
+    text-align: right;
+    padding-left: 25px;
+    padding-top: 15px;
+}

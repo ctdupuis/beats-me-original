@@ -2,6 +2,7 @@
   <%= form_tag("/albums", method: "get") do %>
     <%= select_tag "genre", options_from_collection_for_select(Genre.all, :id, :name), prompt: "All", value: "All" %>
     <br />
+    <br />
     <div class="actions">
         <%= submit_tag "Filter" %>
         <%= submit_tag "Clear Filter" %>

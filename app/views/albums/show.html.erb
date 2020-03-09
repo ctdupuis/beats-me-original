@@ -2,17 +2,17 @@
     <h1><%= @album.name %></h1>
 </div>
 
-<div class="container">
-    <h2>by <%= link_to @album.artist.name, artist_path(@album.artist) %><h2><br />
+<div class="alb-header">
+    <div class="alb-container">
+        <div>by <%= link_to @album.artist_name, artist_path(@album.artist) %></div>
+        <div><%= @album.genre.name %></div>
+        <div>submitted by <%= link_to @user.username, user_path(@user) %></div>
+    </div>
+    <div class="img-container">
+        <img src="<%= @album.img_url %>">
+    </div>
 </div>
 
-<h3><%= @album.genre.name %></h3><br />
-
-<p>submitted by <%= link_to @user.username, user_path(@user) %></p>
-
-<div class="img-container">
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Logic_Under_Pressure_9.10.14.jpg/220px-Logic_Under_Pressure_9.10.14.jpg">
-</div>
 
 <table class="tracklist">
     <tr>

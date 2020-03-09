@@ -17,15 +17,21 @@
         <%= f.text_field :email %><br />
     </div>
 
+    <br />
+
     <div id="field<%= ' field_with_errors' if @user.errors[:username].any? %>">  
         <%= f.label :username %>
         <%= f.text_field :username %><br />
     </div>
+
+    <br />
       
     <div id="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
         <%= f.label :password %>
         <%= f.password_field :password %><br />
     </div>
+
+    <br />
        
 
 

@@ -24,7 +24,14 @@
     </div>
 
     <br />
-    Genre:
+
+    <div id="field<%= ' field_with_errors' if @album.errors[:img_url].any? %>">
+        <%= f.label :img_url, "Image URL" %>
+        <%= f.text_field :img_url %>
+    </div>
+
+    <br />
+    <h4>Genre:</h4>
     <div id="field<%= ' field_with_errors' if @album.errors[:genre].any? %>">
         <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "Select a genre" %>
     </div>
