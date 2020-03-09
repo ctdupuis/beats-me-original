@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     end
 
     def create
+        # binding.pry
         if auth_hash = request.env['omniauth.auth']
             @user = User.find_or_create_by_omniauth(auth_hash)
             session[:user_id] = @user.id 
@@ -15,6 +16,7 @@ class SessionsController < ApplicationController
                 session[:user_id] = @user.id
                 redirect_to my_page_path
             else
+                flash[:errors] = "Inavlid username/password. Please try again"
                 render 'new'
             end
         end
