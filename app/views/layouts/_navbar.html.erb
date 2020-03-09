@@ -1,8 +1,8 @@
-<div class="header">
+<header class="header">
     <div class="title"><h1><%= link_to "BeatsME", root_path%></h1></div>
         <div class="navbar">
             <% if user_is_authenticated %>
-                <div class="nav-container" onclick="location.href='/my_page';" style="cursor: pointer;">
+                <div class="nav-container" onclick="location.href='/my_page';" style="cursor: pointer; float:right;">
                     <div class="nav-item">My<br>Page</div>
                 </div>
                 <div class="nav-container" onclick="location.href='/logout';">
@@ -18,4 +18,4 @@
             <% end %>
         </div>
     </div>
-</div>
+</header>
