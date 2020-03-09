@@ -1,34 +1,36 @@
-<div class="album-show-alb-name">
-    <h1><%= @album.name %></h1><br />
+<div class="container-lined">
+    <h1><%= @album.name %></h1>
 </div>
 
-<h3>Genre: <%= @album.genre.name %></h3><br />
-
-by
-
-<div class="album-show-art-name">
-    <h2><%= link_to @album.artist.name, artist_path(@album.artist) %><h2><br />
+<div class="container">
+    <h2>by <%= link_to @album.artist.name, artist_path(@album.artist) %><h2><br />
 </div>
+
+<h3><%= @album.genre.name %></h3><br />
 
 <p>submitted by <%= link_to @user.username, user_path(@user) %></p>
 
+<div class="img-container">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Logic_Under_Pressure_9.10.14.jpg/220px-Logic_Under_Pressure_9.10.14.jpg">
+</div>
 
-<% @album.songs.each do |song| %>
-    <div class="container">
-        <div class="button">
-            <%= link_to song.title, album_song_path(@album, song) %>
-        </div>
+<table class="tracklist">
+    <tr>
+      <th>Tracklist</th>
+    </tr>
+    <% @album.songs.each.with_index do |song, index| %>
+    <tr>
+      <td><%= (index+1) %></td>
+      <td><%= link_to song.title, album_song_path(@album, song) %></td>
+      <td><%= song.runtime %>
+      <% if check_ownership(current_user, @album) %>       
+        <td><%= link_to "Edit Song", edit_album_song_path(@album, song) %></td>
+        <td><%= link_to "Delete Song", album_song_path(@album, song), method: :delete, data: { confirm: "This song will be deleted. Are you sure?" } %></td>
+      <% end %>
+    </tr>
         
-        <% if check_ownership(current_user, @album) %>
-        <div class="button">
-            <%= link_to "Edit", edit_album_song_path(@album, song) %>
-        </div>
-        <div class="button">
-            <%= link_to "Delete", album_song_path(@album, song), method: :delete, data: { confirm: "This song will be deleted. Are you sure?"} %>
-        </div>
-         <% end %>
-    </div>
-<% end %>
+    <% end %>
+</table>
 
 <% if check_ownership(current_user, @album) %>
 <p><%= link_to "Delete Album", @album, method: :delete, data: { confirm: "This album will be deleted. Are you sure?"} %></p>
