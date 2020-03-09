@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
+    layout "sessions"
 
     def home
     end

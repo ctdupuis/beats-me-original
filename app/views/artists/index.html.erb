@@ -1,5 +1,10 @@
-<% @artists.each do |artist| %>
-    <div class="list-item">
-    <h3><%= link_to artist.name, artist_path(artist) %></h3>
-    </div>
-<% end %>
+<table>
+    <tr>
+      <th>Artist</th>
+    </tr>
+    <% @artists.each do |artist| %>
+    <tr>
+      <td><%= link_to artist.name, artist_path(artist) %></td>
+    </tr>
+    <% end %>
+</table>

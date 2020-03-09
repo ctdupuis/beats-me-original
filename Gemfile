@@ -25,6 +25,7 @@ gem 'dotenv-rails'
 gem 'omniauth'
 gem 'omniauth-spotify'
 gem 'devise'
+gem 'pry'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

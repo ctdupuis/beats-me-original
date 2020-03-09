@@ -3,11 +3,16 @@
         <h2>Welcome, <%= current_user.username %></h2>
     </div>
 </div>
-<h4>Your Submissions:</h4>
-<div class="container">
+<h2>Your Submissions:</h2>
+<table>
+    <tr>
+      <th>Album Name</th>
+      <th>Artist</th>
+    </tr>
     <% @submissions.each do |sub| %>
-        <div class="list-item">
-            <%= link_to sub.name, album_path(sub) %>
-        </div>
+    <tr>
+      <td><%= link_to sub.name, album_path(sub) %></td>
+      <td><%= link_to sub.artist_name, artist_path(sub.artist) %></td>
+    </tr>
     <% end %>
-</div>
+</table>

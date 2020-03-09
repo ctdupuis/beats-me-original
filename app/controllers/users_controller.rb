@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show]
     before_action :require_logged_in, only: [:my_page]
+    layout "sessions"
 
 
     def create
@@ -18,6 +19,7 @@ class UsersController < ApplicationController
     end
 
     def my_page
+        # render :layout => 'sessions'
         @submissions = current_user.albums
     end
 

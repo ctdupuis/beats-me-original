@@ -1,7 +1,13 @@
-<% if current_user && my_page?(@user) %>
-    <%= render 'home' %>
-    <%= render 'info' %>
-<% else %>
-    <%= render 'info' %>
-<% end %>
-
+<h2><%= @user.username %>'s Submissions:</h2>
+<table>
+    <tr>
+      <th>Album Name</th>
+      <th>Artist</th>
+    </tr>
+    <% @albums.each do |album| %>
+    <tr>
+      <td><%= link_to album.name, album_path(album) %></td>
+      <td><%= link_to album.artist_name, artist_path(album.artist) %></td>
+    </tr>
+    <% end %>
+</table>

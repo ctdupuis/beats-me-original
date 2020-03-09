@@ -14,6 +14,25 @@
  *= require_self
  */
 
+.field_with_errors {
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#error-explanation {
+    display: inline;
+    color: whitesmoke;
+    div {
+        color: red;
+        display: block;
+    }
+}
+
+html {
+    font-family: "Arial Black", Gadget, sans-serif;
+}
+
 body {
     background-color: rgb(0, 0, 0);
 }
@@ -23,10 +42,6 @@ body {
     margin: 10px;
     padding: 20px;
     border-radius: 5px;
-}
-
- .field_with_errors {
-    border-left: 2px solid rgb(136, 58, 238);
 }
 
 a {
@@ -63,6 +78,8 @@ p, h1, h2, h3, h4 {
         background-color: darkgrey;
         margin: 10px;
         border-radius: 10px;
+        text-align: center;
+        text-transform: uppercase;
         &:hover {
             cursor: pointer;
             background-color: black;
@@ -71,7 +88,7 @@ p, h1, h2, h3, h4 {
                 color: rgb(136, 58, 238);
             }
         }
-    .nav-item a {
+    .nav-item  {
         color: rgb(136, 58, 238);
 
     }
@@ -86,8 +103,10 @@ p, h1, h2, h3, h4 {
             background-color: darkgrey;
             margin: 10px;
             border-radius: 10px;
+            text-transform: uppercase;
             div {
                 color: rgb(136, 58, 238); 
+                text-align: center;
             }
             &:hover {
                 cursor: pointer;
@@ -99,13 +118,13 @@ p, h1, h2, h3, h4 {
             }
     }
 
-input {
+input, label {
     background-color: black;
     border: 2px;
     padding-block: rgb(136, 58, 238);
     padding: 5px;
     border-radius: 10px;
-    font-size: large;
+    font-size: medium;
     text-align: left;
     color: rgb(136, 58, 238);
 }
@@ -113,4 +132,26 @@ input {
 #album_genre_id, #genre {
     color: rgb(136, 58, 238);
     background-color: black;
+}
+
+table {
+    border-spacing: 5px;
+    width: 100%;
+    th {
+        text-align: left;
+        height: 50px;
+    }
+    tr {
+        padding: 5px;
+        font-size: medium;
+        color: whitesmoke;
+        font-size: 25px;
+    }
+    td {
+        padding: 15px;
+        height: 25px;
+        a {
+            font-size: 20px;
+        }
+    }
 }

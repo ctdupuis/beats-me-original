@@ -1,8 +1,10 @@
 <h2>Tracklist</h2>
 
-<div id="field<%= ' field_with_errors' if @album.errors[:songs].any? %>">
 
-<%= f.fields_for :songs, 6.times { album.songs.build } do |song_field| %>
+<%= f.fields_for :songs, 10.times { album.songs.build } do |song_field| %>
+
+    <div id="field<%= ' field_with_errors' if @album.errors[:songs].any? %>">
+
     <%= song_field.label :title %>
     <%= song_field.text_field :title %>
     <%= song_field.label :runtime %>

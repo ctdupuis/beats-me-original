@@ -2,12 +2,13 @@
     <% if @song.errors.any? %>
         <div id="error-explanation">
             <h2>There were some errors:</h2>
-            <ul>
-             <% @song.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-             <% end %>
-            </ul>
-            </div>
+                <div class="container"
+                <% @song.errors.full_messages.each do |msg| %>
+                        <div><%= msg %></div>
+                        <br>
+                <% end %>
+                </div>
+        </div>
         <% end %>
 
     <div id="field<%= ' field_with_errors' if @song.errors[:title].any? %>">
@@ -15,10 +16,14 @@
         <%= f.text_field :title %>
     </div>
 
+    <br />
+
     <div id="field<%= ' field_with_errors' if @song.errors[:length].any? %>">
         <%= f.label :runtime %>
         <%= f.text_field :runtime %>
     </div>
+
+    <br />
 
     <%= f.submit %>
 <% end %>

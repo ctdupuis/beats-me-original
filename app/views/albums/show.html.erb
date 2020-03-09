@@ -2,6 +2,8 @@
     <h1><%= @album.name %></h1><br />
 </div>
 
+<h3>Genre: <%= @album.genre.name %></h3><br />
+
 by
 
 <div class="album-show-art-name">
@@ -10,14 +12,20 @@ by
 
 <p>submitted by <%= link_to @user.username, user_path(@user) %></p>
 
-<h3>Genre: <%= @album.genre.name %></h3><br />
 
 <% @album.songs.each do |song| %>
-    <div class="list-item">
-        <%= link_to song.title, album_song_path(@album, song) %>
+    <div class="container">
+        <div class="button">
+            <%= link_to song.title, album_song_path(@album, song) %>
+        </div>
+        
         <% if check_ownership(current_user, @album) %>
-         |  <%= link_to "Edit", edit_album_song_path(@album, song) %>
-         |  <%= link_to "Delete", album_song_path(@album, song), method: :delete, data: { confirm: "This song will be deleted. Are you sure?"} %>
+        <div class="button">
+            <%= link_to "Edit", edit_album_song_path(@album, song) %>
+        </div>
+        <div class="button">
+            <%= link_to "Delete", album_song_path(@album, song), method: :delete, data: { confirm: "This song will be deleted. Are you sure?"} %>
+        </div>
          <% end %>
     </div>
 <% end %>

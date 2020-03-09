@@ -2,11 +2,12 @@
     <% if @user.errors.any? %>
         <div id="error-explanation">
         <h2>There were some errors:</h2>
-        <ul>
+        <div class="container">
             <% @user.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
+                <div><%= msg %></div>
+                <br>
             <% end %>
-        </ul>
+        </div>
         </div>
     <% end %>
 

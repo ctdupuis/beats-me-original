@@ -1,18 +1,25 @@
 <h3>Filter albums by genre:</h3>
   <%= form_tag("/albums", method: "get") do %>
-    <%= select_tag "genre", options_from_collection_for_select(Genre.all, :id, :name), prompt: "No Filter" %>
-
+    <%= select_tag "genre", options_from_collection_for_select(Genre.all, :id, :name), prompt: "All", value: "All" %>
+    <br />
     <div class="actions">
         <%= submit_tag "Filter" %>
+        <%= submit_tag "Clear Filter" %>
     </div>
   <% end %>
 
+  <br />
   
-<% @albums.each do |album| %>
-    <div class="list-item">
-        <h3><%= link_to album.name, album_path(album) %> 
-        <% if current_user && check_ownership(current_user, album) %>
-        | <%= link_to "Edit", edit_album_path(album) %></h3> 
-        <% end %>
-    </div>
-<% end %>
+<table>
+    <tr>
+      <th>Album Name</th>
+      <th>Artist</th>
+    </tr>
+    <% @albums.each do |album| %>
+    <tr>
+      <td><%= link_to album.name, album_path(album) %></td>
+      <td><%= link_to album.artist_name, artist_path(album.artist) %></td>
+    </tr>
+    <% end %>
+</table>
+

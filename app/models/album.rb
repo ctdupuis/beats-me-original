@@ -32,9 +32,11 @@ class Album < ApplicationRecord
         self.songs << song 
     end
 
-    def self.filter(genre_id=nil)
+    def self.filter(genre_id)
         if genre_id
             self.where("genre_id = ?", genre_id)
+        elsif genre_id.blank? || genre_id.nil?
+            Album.all
         else
             Album.all
         end
