@@ -1,6 +1,7 @@
 class Song < ApplicationRecord
     belongs_to :artist
     belongs_to :album
+    has_and_belongs_to_many :playlists
 
     validates :title, presence: true
     validates :runtime, presence: true, runtime: true

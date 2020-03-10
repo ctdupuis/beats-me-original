@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_secure_password
     has_many :playlists
     has_many :albums
+    has_many :songs, through: :playlists
 
     validates :username, uniqueness: true, presence: true
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true, uniqueness: true

@@ -1,7 +1,0 @@
-ALL SONGS
-
-<% @songs.each do |song| %>
-    <div class="list-item">
-        <%= link_to song.title, album_song_path(song.album, song) %>
-    </div>
-<% end %>

@@ -1,0 +1,20 @@
+<div class="container-lined">
+    <h1><%= @playlist.name %></h1>
+</div>
+<br>
+<table>
+    <tr>
+        <th>Songs</th>
+    </tr>
+    <% @playlist.songs.each do |song| %>
+    <tr>
+        <td><%= song.title %></td>
+        <td><%= song.artist_name %></td>
+        <td><%= song.runtime %></td>
+    </tr>
+    <% end %>
+</table>
+
+<h3><%= link_to "Edit Playlist", edit_user_playlist_path(current_user, @playlist) %></h3>
+<h3><%= link_to "Add Songs", song_select_path(current_user, @playlist) %></h3>
+<h3><%= link_to "Delete Playlist", user_playlist_path(current_user, @playlist), method: :delete, data: { confirm: "This playlist will be deleted. Are you sure?"} %></h3>

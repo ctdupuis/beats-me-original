@@ -1,9 +1,13 @@
 class Playlist < ApplicationRecord
-    has_many :songs
-    # has_many :artists, through: :songs
-    # has_many :genres, through: :songs
-    # has_many :albums, through: :songs
-    # belongs_to :user
+    has_and_belongs_to_many :songs
+    belongs_to :user
 
-    # validates :name, presence: true
+    validates :name, presence: true
+
+    def add_songs(song_ids)
+        song_ids.each do |id|
+            song = Song.find(id)
+            self.songs << song
+        end
+    end
 end

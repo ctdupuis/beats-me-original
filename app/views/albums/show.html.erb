@@ -5,7 +5,7 @@
 <div class="alb-header">
     <div class="alb-container">
         <div>by <%= link_to @album.artist_name, artist_path(@album.artist) %></div>
-        <div><%= @album.genre.name %></div>
+        <div class="genre"><%= @album.genre.name %></div>
         <div>submitted by <%= link_to @user.username, user_path(@user) %></div>
     </div>
     <div class="img-container">
@@ -33,7 +33,11 @@
     <% end %>
 </table>
 
+
 <% if check_ownership(current_user, @album) %>
+<p><%= link_to "Edit Album", edit_album_path(@album) %></p>
+
+
 <p><%= link_to "Delete Album", @album, method: :delete, data: { confirm: "This album will be deleted. Are you sure?"} %></p>
 
 <p><%= link_to "Add Song", new_album_song_path(@album) %></p>

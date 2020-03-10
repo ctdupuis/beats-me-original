@@ -1,0 +1,32 @@
+<div class="container-lined">
+    <h1><%= @playlist.name %></h1>
+</div>
+<br>
+<br>
+
+<table>
+    <tr>
+        <th>Add Songs</th>
+    </tr>
+        <tr>
+            <td>Song</td>
+            <td>Artist</td>
+            <td>Runtime</td>
+        </tr>
+<%= form_tag add_pl_songs_path %>
+    <%= hidden_field_tag "user_id", current_user.id %>
+    <%= hidden_field_tag "id", @playlist.id %>
+    <% @songs.each do |song| %>
+        <tr>
+            <td><%= song.title %></td>
+            <td><%= song.artist.name %></td>
+            <td><%= song.runtime %></td>
+            <td><%= check_box_tag "song_ids[]", song.id %></td>
+        </tr>
+    <% end %>
+</table>
+
+<%= hidden_field_tag "user_id", current_user.id %>
+<%= hidden_field_tag "id", @playlist.id %>
+
+<%= submit_tag "Add Songs" %>

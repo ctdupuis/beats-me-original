@@ -47,7 +47,10 @@ body {
 
 a {
     text-decoration: none;
-    color: rgb(136, 58, 238);
+    color: rgb(67, 147, 218);
+    &:hover {
+        color: rgb(136, 58, 238);
+    }
 }
 
 div.container-lined {
@@ -57,7 +60,7 @@ div.container-lined {
 
 
 p, h1, h2, h3, h4 {
-    color: white;
+    color: rgb(67, 147, 218);
 }
 
 .header {
@@ -88,10 +91,10 @@ p, h1, h2, h3, h4 {
         text-transform: uppercase;
         &:hover {
             cursor: pointer;
-            background-color: black;
+            background-color: whitesmoke;
             transition: 0.5s ease;
-            .nav-item a {
-                color: rgb(136, 58, 238);
+            .nav-item  {
+                color: rgb(67, 147, 218);
             }
         }
     .nav-item  {
@@ -116,10 +119,10 @@ p, h1, h2, h3, h4 {
             }
             &:hover {
                 cursor: pointer;
-                background-color: black;
+                background-color: whitesmoke;
                 transition: 0.2s ease;
                 div {
-                    color: rgb(136, 58, 238);
+                    color: rgb(67, 147, 218);
                 }
             }
     }
@@ -132,7 +135,7 @@ input {
     border-radius: 10px;
     font-size: medium;
     text-align: left;
-    color: rgb(136, 58, 238);
+    color: whitesmoke;
 }
 
 label { 
@@ -160,6 +163,7 @@ table {
     th {
         text-align: left;
         height: 50px;
+        border-bottom: 2px solid rgb(136, 58, 238);
     }
     tr {
         padding: 5px;
@@ -188,6 +192,9 @@ table {
         padding: 5px;
         color: whitesmoke;
         font-size: 25px;
+        div.genre {
+           color: rgb(136, 58, 238);
+        }
     }
     .img-container {
         text-align: right;

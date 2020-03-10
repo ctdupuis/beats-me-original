@@ -8,7 +8,7 @@ class UsersController < ApplicationController
         @user = User.create(user_params)
         if @user.save
             session[:user_id] = @user.id
-            redirect_to user_path(@user)
+            redirect_to my_page_path
         else
             render :'welcome/signup'
         end
@@ -19,7 +19,6 @@ class UsersController < ApplicationController
     end
 
     def my_page
-        # render :layout => 'sessions'
         @submissions = current_user.albums
     end
 
