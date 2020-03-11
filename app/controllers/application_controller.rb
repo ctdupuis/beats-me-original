@@ -17,7 +17,10 @@ class ApplicationController < ActionController::Base
     end
 
     def require_logged_in
-      redirect_to controller: 'sessions', action: 'new', alert: "Must Log In" unless user_is_authenticated
+      unless user_is_authenticated
+        flash[:errors] = "Please Log In to continue" 
+        redirect_to controller: 'sessions', action: 'new'
+      end
     end
 
     def check_ownership(user=nil, object)

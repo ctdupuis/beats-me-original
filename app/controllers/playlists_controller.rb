@@ -31,7 +31,6 @@ class PlaylistsController < ApplicationController
   end
 
   def add_songs
-    # binding.pry
     @playlist.add_songs(params[:song_ids])
     redirect_to user_playlist_path(current_user, @playlist)
   end

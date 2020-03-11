@@ -6,11 +6,14 @@
     <div class="alb-container">
         <div>by <%= link_to @album.artist_name, artist_path(@album.artist) %></div>
         <div class="genre"><%= @album.genre.name %></div>
+        <% if check_ownership(current_user, @album) %>
+        <div>submitted by <%= link_to current_user.username, my_page_path %></div>
+        <% else %>
         <div>submitted by <%= link_to @user.username, user_path(@user) %></div>
+        <% end %>
     </div>
     <div class="img-container">
         <img src="<%= @album.img_url %>">
-        <span style="background-image: url(<%= @album.img_url %>);"></span>
     </div>
 </div>
 

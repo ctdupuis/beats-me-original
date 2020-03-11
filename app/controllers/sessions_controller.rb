@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
                 session[:user_id] = @user.id
                 redirect_to my_page_path
             else
-                flash[:errors] = "Inavlid username/password. Please try again"
+                flash[:errors] = "Invalid username/password. Please try again"
                 render 'new'
             end
         end
