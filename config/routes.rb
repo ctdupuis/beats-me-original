@@ -26,5 +26,6 @@ Rails.application.routes.draw do
   patch "users/:user_id/playlists/:id/edit" => "playlists#update"
   get '/auth/:provider/callback' => 'sessions#create'
   get 'my_page' => 'users#my_page', as: 'my_page'
+  get 'my_page/playlists' => "playlists#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

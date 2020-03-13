@@ -17,6 +17,10 @@ class PlaylistsController < ApplicationController
   def show
   end
 
+  def index
+    @playlists = current_user.playlists
+  end
+
   def edit
   end
 

@@ -7,7 +7,7 @@ class RuntimeValidator < ActiveModel::EachValidator
             mins = value.split(":")[0].to_i
             secs = value.split(":")[1]
             split_sec = secs.split("").map{|s| s.to_i}
-            unless mins.between?(0, 15) && split_sec[0].between?(0, 5) && split_sec[1].between?(0, 9)
+            unless mins.between?(0, 20) && split_sec[0].between?(0, 5) && split_sec[1].between?(0, 9)
                 record.errors[attribute] << err_msg
             end
         end
