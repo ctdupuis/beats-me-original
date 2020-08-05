@@ -1,7 +1,8 @@
 class WelcomeController < ApplicationController
-    layout "sessions"
+    # layout "sessions"
 
     def home
+        # binding.pry
     end
 
     def signup

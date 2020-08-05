@@ -168,9 +168,24 @@ concrete_tracks = {
     :t11 => {title: "Concrete and Gold", runtime: "5:31"}
 }
 
+ben_img = "https://www.washingtonian.com/wp-content/uploads/2017/06/6-30-17-goat-yoga-congressional-cemetery-1.jpg"
+ben_tracks = {
+    :t1 => {title: "I'm da GOAT", runtime: "4:20"},
+    :t2 => {title: "Oh my Lerrrd", runtime: "6:09"},
+    :t3 => {title: "Cherry (Vanilla) Water & Dr. Pepper", runtime: "4:53"},
+    :t4 => {title: "I H8 Dolores", runtime: "3:33"},
+    :t5 => {title: "Haven't Seen Step Brothers in a While", runtime: "5:03"},
+    :t6 => {title: "Your Mom Is My Mom", runtime: "9:55"},
+    :t7 => {title: "Trapp Car Taped Up", runtime: "7:07"},
+    :t8 => {title: "Butt Pussy", runtime: "2:02"},
+    :t9 => {title: "5000 updoots", runtime: "5:00"},
+    :t10 => {title: "Stewie is Best Boi", runtime: "4:50"}
+}
+
 make_seeds(up_tracks, "Under Pressure", "Logic", "Rap", u1, up_img)
 make_seeds(circles_tracks, "Circles", "Mac Miller", "Hip Hop", u1, circles_img)
 make_seeds(swimming_tracks, "Swimming", "Mac Miller", "Hip Hop", u2, swimming_img)
 make_seeds(fhd_tracks, "2014 Forest Hills Drive", "J. Cole", "Rap", u3, fhd_img)
 make_seeds(hollywood_tracks, "Hollywood's Bleeding", "Post Malone", "Pop", u3, hollywood_img)
 make_seeds(concrete_tracks, "Concrete and Gold", "Foo Fighters", "Alternative Rock", u3, concrete_img)
+make_seeds(ben_tracks, "Ben's Playlidt", "Ben da GOAT", "Booty Poppin", u1, ben_img)
