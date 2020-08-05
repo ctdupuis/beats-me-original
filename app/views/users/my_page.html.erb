@@ -4,38 +4,57 @@
     </div>
 </div>
 
-<h3><%= link_to "Add Album", new_album_path %></h3>
-<h3><%= link_to "New Playlist", new_user_playlist_path(current_user) %></h3>
-
 <br />
 
-<div class="container-lined">
-  <h2>Your Submissions:</h2>
-</div>
+<% if @submissions.empty? %>
+  <table>
+  <tr>
+    <th>You don't have any submissions yet</th>
+  </tr>
+  <tr>
+    <td><%= link_to "Click here to add an album", new_album_path %></td>
+  </tr>
+  </table>
+<% else %>
+  <div class="container-lined">
+    <h2>Your Submissions:</h2>
+  </div>
 
-<table>
-    <tr>
-      <th>Album Name</th>
-      <th>Artist</th>
-    </tr>
-    <% @submissions.each do |sub| %>
-    <tr>
-      <td><%= link_to sub.name, album_path(sub) %></td>
-      <td><%= link_to sub.artist_name, artist_path(sub.artist) %></td>
-    </tr>
-    <% end %>
-</table>
+  <table>
+      <tr>
+        <th>Album Name</th>
+        <th>Artist</th>
+      </tr>
+      <% @submissions.each do |sub| %>
+      <tr>
+        <td><%= link_to sub.name, album_path(sub) %></td>
+        <td><%= link_to sub.artist_name, artist_path(sub.artist) %></td>
+      </tr>
+      <% end %>
+  </table>
+<% end %>
 
 
 <br />
 <br />
-<table>
-    <tr>
-      <th>Your Playlists</th>
-    </tr>
-    <% current_user.playlists.each do |playlist| %>
-    <tr>
-      <td><%= link_to playlist.name, user_playlist_path(current_user, playlist) %></td>
-    </tr>
-    <% end %>
-</table>
+<% if current_user.playlists.empty? %>
+    <table>
+        <tr>
+          <th>You don't have any playlists yet</th>
+        </tr>
+        <tr>
+          <td><%= link_to "Click here to add a playlist", new_user_playlist_path(current_user) %></td>
+        </tr>
+    </table>
+<% else %>
+  <table>
+      <tr>
+        <th>Your Playlists</th>
+      </tr>
+      <% current_user.playlists.each do |playlist| %>
+      <tr>
+        <td><%= link_to playlist.name, user_playlist_path(current_user, playlist) %></td>
+      </tr>
+      <% end %>
+  </table>
+<% end %>

@@ -15,21 +15,7 @@
         <div>Explore<br>Artists</div>
     </div>
 
-    <% if user_is_authenticated %>
-            <div class="button" onclick="location.href='/my_page';" style="cursor: pointer;">
-                <div>My<br>Page</div>
-            </div>
-            <div class="button" onclick="location.href='/logout';" style="cursor: pointer;">
-                <div>Log<br>Out</div>
-            </div>
-    <% else %>
-            <div class="button" onclick="location.href='/signup';" style="cursor: pointer;">
-                <div>Sign<br>Up</div>
-            </div>
-            <div class="button" onclick="location.href='/login';" style="cursor: pointer;">
-                <div>Log<br>In</div>
-            </div>
-    <% end %>
+  
 </div>
 <br />
     <p>Anyone can browse beats, only registered users may submit new beats</p>
