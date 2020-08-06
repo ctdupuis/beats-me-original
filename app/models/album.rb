@@ -32,6 +32,26 @@ class Album < ApplicationRecord
         self.songs << song 
     end
 
+    def total_runtime
+        mins = []
+        secs = []
+        self.songs.map do |song|
+            mins << song.runtime.split(':')[0].to_i
+            secs << song.runtime.split(':')[1].to_i
+        end
+        total_minutes_as_seconds = mins.inject{|sum, el| sum + (el * 60) }
+        total_seconds = secs.inject{|sum, el| sum + el }
+        grand_total_seconds = total_minutes_as_seconds + total_seconds
+        runtime = grand_total_seconds / 60
+        if runtime > 60
+            hours = runtime / 60
+            minutes = runtime % 60
+            return "#{hours} hr #{minutes} min"
+        else
+            return "#{runtime} min"
+        end
+    end
+
     def self.filter(genre_id)
         if genre_id
             self.where("genre_id = ?", genre_id)

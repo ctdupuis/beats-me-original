@@ -31,6 +31,9 @@
         <td><%= link_to sub.artist_name, artist_path(sub.artist) %></td>
       </tr>
       <% end %>
+      <tr>
+        <td><%= link_to "Click here to add an album", new_album_path %></td>
+      </tr>
   </table>
 <% end %>
 
@@ -56,5 +59,8 @@
         <td><%= link_to playlist.name, user_playlist_path(current_user, playlist) %></td>
       </tr>
       <% end %>
+      <tr>
+        <td><%= link_to "Click here to add a playlist", new_user_playlist_path(current_user) %></td>
+      </tr>
   </table>
 <% end %>

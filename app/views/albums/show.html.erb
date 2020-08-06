@@ -11,6 +11,7 @@
         <% else %>
         <div>submitted by <%= link_to @user.username, user_path(@user) %></div>
         <% end %>
+        
     </div>
     <div class="img-container">
         <img src="<%= @album.img_url %>">
@@ -21,6 +22,8 @@
 <table class="tracklist">
     <tr>
       <th>Tracklist</th>
+      <th><%= @album.songs.length %> songs</th>
+      <th>⏱<%= @album.total_runtime %></th>
     </tr>
     <% @album.songs.each.with_index do |song, index| %>
     <tr>

@@ -6,13 +6,10 @@
 
 <table>
     <tr>
-        <th>Add Songs</th>
+        <th>Song</th>
+        <th>Artist</th>
+        <th>Runtime</th>
     </tr>
-        <tr>
-            <td>Song</td>
-            <td>Artist</td>
-            <td>Runtime</td>
-        </tr>
 <%= form_tag add_pl_songs_path %>
     <%= hidden_field_tag "user_id", current_user.id %>
     <%= hidden_field_tag "id", @playlist.id %>
