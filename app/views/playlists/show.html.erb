@@ -5,6 +5,8 @@
 <table>
     <tr>
         <th>Songs</th>
+        <th></th>
+        <th>⏱<%= @playlist.total_runtime %></th>
     </tr>
     <% @playlist.songs.each do |song| %>
     <tr>
