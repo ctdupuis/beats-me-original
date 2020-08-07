@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get "users/:user_id/playlists/:id/add_songs" => "playlists#song_select", as: 'song_select'
   post "users/:user_id/playlists/:id/add_songs" => "playlists#add_songs", as: 'add_pl_songs'
   patch "users/:user_id/playlists/:id/edit" => "playlists#update"
+  post "users/:user_id/playlists/:id" => "playlists#remove_song", as: 'remove_pl_song'
   get '/auth/:provider/callback' => 'sessions#create'
   get 'my_page' => 'users#my_page', as: 'my_page'
   get 'my_page/playlists' => "playlists#index"

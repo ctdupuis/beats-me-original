@@ -1,5 +1,5 @@
 class PlaylistsController < ApplicationController
-  before_action :set_playlist, only: [:show, :edit, :update, :song_select, :destroy, :add_songs]
+  before_action :set_playlist, except: [:new, :create, :index]
 
   def new
     @playlist = Playlist.new
@@ -15,6 +15,12 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+  end
+
+  def remove_song
+    song = @playlist.songs.find(params[:song_id])
+    @playlist.songs.delete(song)
+    redirect_to user_playlist_path(current_user, @playlist)
   end
 
   def index
