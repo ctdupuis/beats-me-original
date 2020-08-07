@@ -15,6 +15,12 @@
         <div>Explore<br>Artists</div>
     </div>
 
+    <br />
+    <%= form_with(url: '/login', method: "post") do %>
+        <%= hidden_field_tag(:username, "Guest") %>
+        <%= hidden_field_tag(:password, "guest") %>
+        <%= submit_tag("Log In as Guest") %>
+    <% end %>
   
 </div>
 <br />
