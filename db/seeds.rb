@@ -52,6 +52,7 @@ genres.each{ |genre| Genre.create(name: genre) }
 u1 = User.create(username: "webhead", email: "futuredev@learn.co", password: "railsproject")
 u2 = User.create(username: "moomoo", email: "moocow@pepperidgefarms.com", password: "railsproject")
 u3 = User.create(username: "BigDoggoMilo", email: "noleantreats@perard.com", password: "railsproject")
+guest = User.create(username: 'Guest', email: 'guest@beatsme.com', password: 'guest')
 
 
 imgs = {
