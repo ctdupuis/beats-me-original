@@ -26,5 +26,10 @@ class SessionsController < ApplicationController
         redirect_to root_path
     end
 
+    def guest
+        session[:user_id] = User.find_by(username: 'Guest').id
+        redirect_to my_page_path
+    end
+
 
 end
