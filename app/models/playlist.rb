@@ -18,10 +18,10 @@ class Playlist < ApplicationRecord
             mins << song.runtime.split(':')[0].to_i
             secs << song.runtime.split(':')[1].to_i
         end
-        total_minutes_as_seconds = mins.inject{|sum, el| sum + (el * 60) }
-        total_seconds = secs.inject{|sum, el| sum + el }
-        grand_total_seconds = total_minutes_as_seconds + total_seconds
-        runtime = grand_total_seconds / 60
+        total_minutes_as_secs = mins.reduce(:+) * 60
+        total_seconds = secs.reduce(:+)
+        grand_total_seconds = total_minutes_as_secs + total_seconds
+        runtime = (grand_total_seconds / 60).round
         if runtime > 60
             hours = runtime / 60
             minutes = runtime % 60

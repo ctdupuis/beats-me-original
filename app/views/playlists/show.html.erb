@@ -2,26 +2,28 @@
     <h1><%= @playlist.name %></h1>
 </div>
 <br>
+<% if @playlist.songs.any? %>
 <table>
     <tr>
         <th>Songs</th>
         <th></th>
         <th>⏱<%= @playlist.total_runtime %></th>
     </tr>
-    <% @playlist.songs.each do |song| %>
-    <tr>
-        <td><%= song.title %></td>
-        <td><%= song.artist_name %></td>
-        <td><%= song.runtime %></td>
-        <%= form_with(url: remove_pl_song_path, method: "post") do  %>
-            <%= hidden_field_tag(:user_id, current_user.id) %>
-            <%= hidden_field_tag(:id, @playlist.id) %>
-            <%= hidden_field_tag(:song_id, song.id) %>
-            <td><%= submit_tag("Remove") %></td>
-        <% end %>
+        <% @playlist.songs.each do |song| %>
+        <tr>
+            <td><%= song.title %></td>
+            <td><%= song.artist_name %></td>
+            <td><%= song.runtime %></td>
+            <%= form_with(url: remove_pl_song_path, method: "post") do  %>
+                <%= hidden_field_tag(:user_id, current_user.id) %>
+                <%= hidden_field_tag(:id, @playlist.id) %>
+                <%= hidden_field_tag(:song_id, song.id) %>
+                <td><%= submit_tag("Remove") %></td>
+            <% end %>
 
-        
-    </tr>
+            
+        </tr>
+        <% end %>
     <% end %>
 </table>
 
