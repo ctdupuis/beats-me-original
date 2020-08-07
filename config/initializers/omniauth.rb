@@ -1,5 +1,5 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-	provider :spotify, a6d95bf79df64eceac6d491fa9df7505, d179ee43a5284c8c82a19f32b887fb7b, scope: 'user-read-email'
+	provider :spotify, "a6d95bf79df64eceac6d491fa9df7505", "d179ee43a5284c8c82a19f32b887fb7b", scope: 'user-read-email'
 end
 
 
