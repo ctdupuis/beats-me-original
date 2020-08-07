@@ -1,8 +1,8 @@
-# User.delete_all
-# Genre.delete_all
-# Artist.delete_all
-# Song.delete_all
-# Album.delete_all
+Album.destroy_all
+Artist.destroy_all
+Song.destroy_all
+User.destroy_all
+Genre.destroy_all
 
 
 genres = [
